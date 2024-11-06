@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+<h1>register page</h1>
+        <input type="text" /><br><br>
+        
+        <input type="email" /><br>
+        <br>
+        
+        <input type="submit" value="login">
+    </form>
+
+    <script>
+var f2=document.forms;
+f2[0].addEventListener('submit',(e)=>{
+    e.preventDefault();
+    var gg=JSON.parse(localStorage.getItem('data'));
+
+    var array=[];
+    for(i=0;i<gg.length;i++){
+        if(gg[i].username==e.target[0].value){
+            array.push(gg[i])
+        }
+        console.log(array)
+    }
+
+    if(array.length>0){
+        if(array[0].username==e.target[0].value && array[0].email==e.target[1]){
+            alert("login successfully")
+        }else{
+            alert('invalid inputs')
+        }
+    }
+    else{
+        alert("plase login")
+    }
+})
+        
+    </script>
+</body>
+</html>
